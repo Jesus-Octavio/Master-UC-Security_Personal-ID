@@ -1,0 +1,202 @@
+\documentclass[ xcolor={svgnames},
+  hyperref={colorlinks=false}]{beamer}
+
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage[numbered,framed]{matlab-prettifier}
+\usepackage{booktabs}
+\usepackage[export]{adjustbox}
+\usepackage{dsfont}
+\usepackage{caption}
+\usepackage{tasks}
+\usepackage[makeroom]{cancel}
+\renewcommand{\CancelColor}{\color{red}}
+
+
+\DeclareUnicodeCharacter{2212}{-}
+\graphicspath{./images}
+ 
+
+%\setbeamersize{text margin left=1.8em,text margin right=1.8em}
+%\setlength{\parindent}{2em}
+
+%No funciona
+%\usepackage[natbib=true,style=authoryear,backend=bibtex,useprefix=true]{biblatex} No funciona
+
+
+
+%Sí funciona
+\usepackage[backend=bibtex,style=alphabetic,citestyle=alphabetic-verb,backref]{biblatex}
+%\usepackage[backend=biber,style=alphabetic,citestyle=alphabetic,backref]{biblatex}
+%%% UB:28.02.2021: para mi solo functiona backend=biber
+%\usepackage[backend=biber,style=alphabetic,citestyle=alphabetic,backref]{biblatex}
+\addbibresource{bibgraf_selected.bib}
+
+
+
+\newcommand\Fontvi{\fontsize{9.5}{7.2}\selectfont}
+\newcommand\Fontvii{\fontsize{10}{7.2}\selectfont}
+\newcommand\Fontviii{\fontsize{8}{7}\selectfont}
+\newcommand\Fontviiii{\fontsize{10.25}{7.2}\selectfont}
+
+
+
+
+\newtheorem{thm}{Teorema}
+\mode<presentation>
+
+
+\usetheme{Madrid}
+%\usetheme{Boadilla}
+\usecolortheme{seahorse}
+\setbeamerfont{frametitle}{parent=structure,size=\large}
+\setbeamertemplate{footline}[frame number]
+\beamertemplatenavigationsymbolsempty
+%\setbeamertemplate{headline} para quitar headlines
+
+%\makeatletter
+%\setbeamertemplate{footline}
+%{	\leavevmode%
+%	\hbox{%
+%		\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+%			\usebeamerfont{author in head/foot}\insertsection
+%		\end{beamercolorbox}%
+%		\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+%			\usebeamerfont{title in head/foot}\insertsubsection
+%		\end{beamercolorbox}
+%		}%
+%	\vskip0pt%
+%}
+%\makeatother
+
+
+
+
+\useinnertheme{circles}
+\newenvironment{trienv}{\only{\setbeamertemplate{items}[triangle]}}{}
+\newenvironment{squareenv}{\only{\setbeamertemplate{items}[square]}}{}
+
+
+\usepackage{ragged2e}
+\usepackage{etoolbox}
+\apptocmd{\frame}{}{\justifying}{} % Justify frames
+\addtobeamertemplate{block begin}{}{\justifying} % Justify blocks
+\usepackage[justification=justified,width=\linewidth]{caption} %Justify caption
+
+\usepackage{mytodo-beamer}
+\usepackage{subfiles}
+
+% Para crear la diapositiva con el título
+\title[TFG]
+{INVESTIGACIÓN MATEMÁTICA Y NUMÉRICA DE LA ECUACIÓN DE LANE-EMDEN}
+
+\subtitle{Trabajo de Fin de Grado}
+
+\author[Jesús Octavio Raboso] % (optional, for multiple authors)
+{Jesús Octavio Raboso \\ \vspace{1mm} Tutor: Uwe Brauer}
+
+\institute[Matemáticas]{Universidad Complutense de Madrid \\ Facultad de Ciencias Matemáticas}
+
+\date{28 de febrero de 2021}
+% Fin para cear la diapositiva con el titulo
+
+
+\begin{document}
+	
+	% Diapositiva para el título
+	\begin{frame}
+		\maketitle
+	\end{frame}
+
+	% Diapositiva para el índice
+	\begin{frame}{Índice general}
+		\tableofcontents
+	\end{frame}
+
+
+	% Marcar al inicio de cada sección
+	\AtBeginSection[]
+	{	\begin{frame}
+		\frametitle{Índice general}
+		\tableofcontents[currentsection]
+		\end{frame}
+	}	
+	
+	% Marcar al inicio de cada subsección
+	\AtBeginSubsection[]
+	{
+		\begin{frame}
+		\frametitle{Índice general}
+		\tableofcontents[currentsection,currentsubsection]
+	\end{frame}
+	}
+
+	% Motivación / Introducción
+	\section{Motivación}
+	\begin{frame}
+		\frametitle{Motivación}
+		\begin{itemize}
+			\item<tri@1-> Métodos numéricos para resolver problemas en otras áreas científicas.
+			\item<tri@1-> Métodos espectrales ({\itshape globales}) vs. métodos de diferencias finitas, métodos de elementos finitos ({\itshape locales}).
+		\end{itemize}
+
+		\begin{figure}[H]
+			\captionsetup{font=footnotesize} \centering
+			\includegraphics[scale=0.5]{images/fdm_vs_spectral.png}
+			\caption{Dada $u(x)=e^{\sin(x)}$, comparación del error entre su derivada exacta $w(x)=\cos(x)e^{\sin(x)}$ y la aproximación del método de diferencias finitas de orden 4 (rojo) y del método espectral (azul).}
+		\end{figure}
+	\end{frame}
+	
+	
+	
+	% Capítulo 1
+	
+	% Demasiado poco tiempo como para ecplicar su significado en física. Creo que es mejor pasar por encima y centrarme en los aspectos matemáticos y el background teórico de los algortimos SLM y QLM.
+	%\subfile{beamer_1.tex}
+	
+	\subfile{beamer_1_short.tex}
+	% Capítulo 2
+	\subfile{beamer_2.tex}
+	% Capítulo 3
+	\subfile{beamer_3.tex}
+	% Capítulo 4
+	\subfile{beamer_4.tex}
+
+
+	% Conclusiones y trabajo futuro
+	\section{Conclusiones y trabajo futuro}
+	\begin{frame}
+		\frametitle{Conclusiones y trabajo futuro}
+		\begin{itemize}
+			\item<tri@1-> El algoritmo SLM.
+			\item<tri@1-> Otros métodos numéricos para resolver la ecuación de	Lane-Emden.
+			\item<tri@1-> El método pseudoespectral de Chebyshev y el Análisis de Fourier.
+			\item<tri@1-> Otros métodos espectrales. Otras matrices de diferenciación.
+			\item<tri@1-> Profundización en la ecuación de Lane-Emden. Modelos relativistas.
+		\end{itemize} 
+	\end{frame}
+
+	% Bibliografía seleccionada	
+	\section{Bibliografía seleccionada}	
+	\begin{frame}[t,allowframebreaks]
+		\frametitle{Bibliografía seleccionada}
+		\nocite{binney2011galactic, chandrasekhar1957introduction, trefethen2000spectral, boyd2001chebyshev, article, Boyd_11,  					     fornberg1998practical}
+		\AtNextBibliography{\footnotesize}
+		\printbibliography
+	\end{frame}
+
+\end{document}

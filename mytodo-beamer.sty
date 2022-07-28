@@ -1,0 +1,43 @@
+\ProvidesPackage{mytodo-beamer}
+
+%% poor-man version of the todo pkg, but allows to insert list of
+%% todos with *links* in beamer 
+
+\usepackage{tcolorbox}
+
+\newcounter{todo}
+\newtcbox{\mytodobox}{colback=orange,colframe=orange!65!black}
+
+\newcommand\jocommentinline[1]{%
+    \refstepcounter{todo} 
+    \mytodobox{\textcolor{blue}{\hypertarget{todo\thetodo}{\textbf{Fixme
+          JO: }#1}}}
+    \addcontentsline{tod}{subsection}{\protect\underline{\textcolor{blue}{\hyperlink{todo\thetodo}{\textbf{Fixme:
+            JO: }\thetodo~#1}}}\par} 
+}
+
+
+
+\newcommand\ubcommentinline[1]{%
+    \refstepcounter{todo} 
+    \mytodobox{\textcolor{blue}{\hypertarget{todo\thetodo}{\textbf{Fixme
+          UB: }#1}}}
+    \addcontentsline{tod}{subsection}{\protect\underline{\textcolor{blue}{\hyperlink{todo\thetodo}{\textbf{Fixme:
+            UB: }\thetodo~#1}}}\par} 
+}
+
+\newcommand\ubresolvedinline[1]{%
+    \refstepcounter{todo} 
+    \mytodobox{\textcolor{blue}{\hypertarget{todo\thetodo}{\textbf{Fixme
+          UB: }#1}}}
+    \addcontentsline{tod}{subsection}{\protect\underline{\textcolor{blue}{\hyperlink{todo\thetodo}{\textbf{Resolved:
+            UB: }\thetodo~#1}}}\par} 
+}
+
+
+
+\makeatletter
+\newcommand\listoftodos{%
+    \@starttoc{tod}}
+\makeatother
+

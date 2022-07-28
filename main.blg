@@ -1,0 +1,18 @@
+[0] Config.pm:304> INFO - This is Biber 2.13
+[0] Config.pm:307> INFO - Logfile is 'main.blg'
+[31] biber-MSWIN64:315> INFO - === 
+[50] Biber.pm:375> INFO - Reading 'main.bcf'
+[139] Biber.pm:905> INFO - Found 13 citekeys in bib section 0
+[153] Biber.pm:4196> INFO - Processing section 0
+[155] Utils.pm:75> INFO - Globbing data source 'bibgraf.bib'
+[164] Utils.pm:91> INFO - Globbed data source 'bibgraf.bib' to bibgraf.bib
+[176] Biber.pm:4373> INFO - Looking for bibtex format file 'bibgraf.bib' for section 0
+[185] bibtex.pm:1462> INFO - LaTeX decoding ...
+[202] bibtex.pm:1281> INFO - Found BibTeX data source 'bibgraf.bib'
+[242] Utils.pm:300> WARN - I didn't find a database entry for 'weideman2000matlab' (section 0)
+[262] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[262] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[262] Biber.pm:4024> INFO - Sorting list 'anyt/global//global/global' of type 'entry' with template 'anyt' and locale 'es-ES'
+[277] bbl.pm:648> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[282] bbl.pm:751> INFO - Output to main.bbl
+[282] Biber.pm:110> INFO - WARNINGS: 1

@@ -1,0 +1,120 @@
+\providecommand{\main}{..}      % UB:28.11.2020: needed for the
+                                % bibfile which is local
+
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+%\listoftodos
+\chapter*{Conclusiones y trabajo futuro}
+	\chaptermark{Conclusiones y trabajo futuro}
+	\markboth{Conclusiones y trabajo futuro}{}
+		
+Durante el desarrollo de esta memoria, han surgido diversas
+cuestiones que pueden resultar interesantes de cara a un futuro
+trabajo:
+	
+\begin{enumerate}[label=\textbullet]
+		
+		
+		
+  \item El algoritmo SLM.
+		
+  Hemos sido incapaces de obtener resultados adecuados en la
+  resolución de la ecuación de Lane-Emden mediante el método SLM. 
+  Tampoco hemos detectado errores en el código implementado en MATLAB. 
+  Por tanto, sería interesante estudiar la aplicación del SLM en otros
+  problemas con el fin de detectar posibles errores y comprobar su
+  efectividad.
+	
+  \item Otros métodos numéricos para resolver la ecuación de
+  Lane-Emden.
+		
+Tan sólo hemos considerado los algoritmos SLM y QLM
+  para su resolución. 
+  Si bien, son muchos los métodos históricamente aplicados para
+  resolverla. 
+  Una posibilidad de trabajo futuro consiste en estudiar otros métodos
+  y comprobar su precisión. 
+		
+		
+		
+		
+  \item El método pseudoespectral de Chebyshev y el Análisis de Fourier.
+		
+  Hemos optado por construir la matriz de diferenciación de Chebyshev siguiendo el método de los residuos
+  ponderados, pero también es posible hacerlo mediante la {\itshape
+   transformada rápida de Fourier}. 
+  La clave de este desarrollo está en la equivalencia entre el
+  desarrollo en serie de Chebyshev en $x\in\left[-1,1\right]$, el desarrollo en
+  serie de Laurent para $z$ sobre la circunferencia unidad y el
+  desarrollo en serie de Fourier en $\theta\in\mathds{R}$. 
+  Por tanto, cualquier polinomio de grado $n$ podrá expresarse como
+  combinación única de polinomios de Chebyshev, como desarrollo de
+  Laurent, o mediante un polinomio trigonométrico y par de período
+  $2\pi$. 
+  Siguiendo una idea similar, una función arbitraria $f(x)$ definida
+  en $[-1,1]$ tendría una función recíproca
+  {\fontfamily{lmss}\selectfont f}$(z)$ sobre la circunferencia unidad
+  y una función periódica $F(\theta)$ en $\mathds{R}$.
+		
+  Dos de las referencias principales para el desarrollo de esta
+  memoria abordan este punto: 
+ el libro \cite{boyd2001chebyshev} se basa en la equivalencia entre
+  el desarrollo en serie de Fourier y el desarrollo en serie de Chebyshev y el manual \cite{trefethen2000spectral}  analiza el método pseudoespectral de Chebyshev desde esta doble perspectiva.
+		
+  Además, tales referencias abordan el empleo de la matriz de
+  diferenciación de Chebyshev para resolver problemas en derivadas
+  parciales, otra posible vía de trabajo.
+		
+		
+		
+		
+		
+		
+  \item Otros métodos pseudoespectrales y matrices de diferenciación.
+		
+  En [\cite{alici2003pseudospectral}, Section 3.2, pp. 35-41]
+  encontramos los {\itshape teoremas de Welfert}, que describen las
+  entradas de una matriz de diferenciación $D^{(\ell)}$. 
+  Siguiendo su desarrollo, pueden obtenerse, por ejemplo, la matriz de
+  diferenciación de Legendre o emplear los polinomios de Laguerre para
+  obtener el método pseudoespectral del mismo nombre, útil para
+  resolver PCs en $[0, \infty)$. 
+  También en [\cite{boyd2001chebyshev}, Appendix A, pp. 495-513], se
+  aborda la elección de otras funciones base y se estudian los dominios de convergencia en el plano complejo.
+						
+				
+			
+  \item Profundización en la ecuación de Lane-Emden. 
+		
+  La interpretación física del modelo estelar es otra posible vía de
+  trabajo. 
+  Hemos seguido la teoría no relativista para modelar la estructura
+  interna de polítropos newtonianos de manera simple gracias a la
+  ecuación de Lane-Emden. 
+  Resolviéndola, aparte de funciones para la densidad, presión 
+  central,
+  energía potencial gravitatoria e incluso temperatura de la 
+  estrella en consideración, las
+  soluciones permiten hallar el límite de 
+  Chandrasekhar
+  para una enana blanca. 
+  Esta es la máxima masa posible de una enana blanca: si se supera,
+  colapsará. Sin embargo, la teoría de Newton no se ajusta a objetos muy compactos y masivos. 
+  Existe un límite superior para la masa de estrellas de neutrones que no puede predecirse con las ecuaciones newtonianas pero sí en el marco de la relatividad general. 
+  Para las estrellas relativistas que permiten identificar modelos estables y no estables a través de la relación masa-radio, la ecuación (\ref{eqn:EHidrostatico_1}) se reemplaza por la ecuacion de Tolman-Oppenheimer-Volkoff. Haciendo un estudio similar, puede deducirse la ecuación de Lane-Emden relativista.
+
+		
+		
+		
+		
+\end{enumerate}
+\biblio
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% eval: (my-set-castellano)
+%%% TeX-master: t
+%%% TeX-output-dir: "./build"
+%%% End:

@@ -1,0 +1,348 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{anyt/global//global/global}
+    \entry{del2l}{article}{}
+      \name{author}{1}{}{%
+        {{hash=e54e6bb54aa037487c19cad5d697fccd}{%
+           family={Cózar},
+           familyi={C\bibinitperiod},
+           given={Álvaro},
+           giveni={Á\bibinitperiod},
+           prefix={de},
+           prefixi={d\bibinitperiod}}}%
+      }
+      \strng{namehash}{e54e6bb54aa037487c19cad5d697fccd}
+      \strng{fullhash}{e54e6bb54aa037487c19cad5d697fccd}
+      \strng{bibnamehash}{e54e6bb54aa037487c19cad5d697fccd}
+      \strng{authorbibnamehash}{e54e6bb54aa037487c19cad5d697fccd}
+      \strng{authornamehash}{e54e6bb54aa037487c19cad5d697fccd}
+      \strng{authorfullhash}{e54e6bb54aa037487c19cad5d697fccd}
+      \field{labelalpha}{Cóz07}
+      \field{sortinit}{C}
+      \field{sortinithash}{4c244ceae61406cdc0cc2ce1cb1ff703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{EL PAÍS}
+      \field{title}{Delitos reales de seres virtuales}
+      \field{year}{2007}
+      \field{dateera}{ce}
+    \endentry
+    \entry{du2019creativity}{book}{}
+      \name{author}{1}{}{%
+        {{hash=7a19f2ad7e0b15bca9b78cb94a590467}{%
+           family={Du\bibnamedelima Sautoy},
+           familyi={D\bibinitperiod\bibinitdelim S\bibinitperiod},
+           given={Marcus},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Harvard University Press}%
+      }
+      \strng{namehash}{7a19f2ad7e0b15bca9b78cb94a590467}
+      \strng{fullhash}{7a19f2ad7e0b15bca9b78cb94a590467}
+      \strng{bibnamehash}{7a19f2ad7e0b15bca9b78cb94a590467}
+      \strng{authorbibnamehash}{7a19f2ad7e0b15bca9b78cb94a590467}
+      \strng{authornamehash}{7a19f2ad7e0b15bca9b78cb94a590467}
+      \strng{authorfullhash}{7a19f2ad7e0b15bca9b78cb94a590467}
+      \field{labelalpha}{Du 19}
+      \field{sortinit}{D}
+      \field{sortinithash}{c438b3d5d027251ba63f5ed538d98af5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The creativity code}
+      \field{year}{2019}
+      \true{nocite}
+    \endentry
+    \entry{jjr}{article}{}
+      \name{author}{1}{}{%
+        {{hash=dbf67cd6f7c62798c04562bf06e6bc9d}{%
+           family={Jones},
+           familyi={J\bibinitperiod},
+           given={Jonathan},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{dbf67cd6f7c62798c04562bf06e6bc9d}
+      \strng{fullhash}{dbf67cd6f7c62798c04562bf06e6bc9d}
+      \strng{bibnamehash}{dbf67cd6f7c62798c04562bf06e6bc9d}
+      \strng{authorbibnamehash}{dbf67cd6f7c62798c04562bf06e6bc9d}
+      \strng{authornamehash}{dbf67cd6f7c62798c04562bf06e6bc9d}
+      \strng{authorfullhash}{dbf67cd6f7c62798c04562bf06e6bc9d}
+      \field{labelalpha}{Jon16}
+      \field{sortinit}{J}
+      \field{sortinithash}{c45040a764d616897e7f5b30174d7b92}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Guardian}
+      \field{title}{The digital Rembrandt: a new way to mock art, made by fools}
+      \field{year}{2016}
+      \field{dateera}{ce}
+    \endentry
+    \entry{nidditch1975john}{article}{}
+      \name{author}{2}{}{%
+        {{hash=b850f7e9b02245eddd11b3a5d656a240}{%
+           family={Locke},
+           familyi={L\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+        {{hash=c0b6a91cce23e9d827a403a01163ac8b}{%
+           family={Nidditch},
+           familyi={N\bibinitperiod},
+           given={Peter\bibnamedelima H},
+           giveni={P\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \strng{namehash}{e9ddd966af7ceee93fdc08beceed194c}
+      \strng{fullhash}{e9ddd966af7ceee93fdc08beceed194c}
+      \strng{bibnamehash}{e9ddd966af7ceee93fdc08beceed194c}
+      \strng{authorbibnamehash}{e9ddd966af7ceee93fdc08beceed194c}
+      \strng{authornamehash}{e9ddd966af7ceee93fdc08beceed194c}
+      \strng{authorfullhash}{e9ddd966af7ceee93fdc08beceed194c}
+      \field{labelalpha}{LN75}
+      \field{sortinit}{L}
+      \field{sortinithash}{dad3efd0836470093a7b4a7bb756eb8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{John Locke: An essay concerning human understanding}
+      \field{year}{1975}
+    \endentry
+    \entry{apunted}{misc}{}
+      \name{author}{4}{}{%
+        {{hash=7bf0238d7afbfde180e29cc2f5586240}{%
+           family={López\bibnamedelima García},
+           familyi={L\bibinitperiod\bibinitdelim G\bibinitperiod},
+           given={Álvaro},
+           giveni={Á\bibinitperiod}}}%
+        {{hash=0801915e1e2d32095a6f78964ba0842f}{%
+           family={Orviz\bibnamedelima Fernándex},
+           familyi={O\bibinitperiod\bibinitdelim F\bibinitperiod},
+           given={Pablo},
+           giveni={P\bibinitperiod}}}%
+        {{hash=788e07dd3dce7d2692b4befc481d0c78}{%
+           family={Rodríuez\bibnamedelima Gonzáles},
+           familyi={R\bibinitperiod\bibinitdelim G\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=e7607943d0f9374a596f022086d1662b}{%
+           family={Sáinz-Pardo\bibnamedelima Días},
+           familyi={S\bibinithyphendelim P\bibinitperiod\bibinitdelim D\bibinitperiod},
+           given={Judith},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{42673aab8029e30b66e1c962ddea054d}
+      \strng{fullhash}{65049286d8cc0f6c3b1ce2042a1eccba}
+      \strng{bibnamehash}{42673aab8029e30b66e1c962ddea054d}
+      \strng{authorbibnamehash}{42673aab8029e30b66e1c962ddea054d}
+      \strng{authornamehash}{42673aab8029e30b66e1c962ddea054d}
+      \strng{authorfullhash}{65049286d8cc0f6c3b1ce2042a1eccba}
+      \field{labelalpha}{Lóp+22}
+      \field{sortinit}{L}
+      \field{sortinithash}{dad3efd0836470093a7b4a7bb756eb8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Apuntes de Seguridad, privacidad y aspectos legales}
+      \field{year}{2022}
+      \true{nocite}
+    \endentry
+    \entry{ucm}{online}{}
+      \name{author}{1}{}{%
+        {{hash=cf06ade735bfdb83b6b7d303f72978b9}{%
+           family={Madrid},
+           familyi={M\bibinitperiod},
+           given={Universidad\bibnamedelima Complutense},
+           giveni={U\bibinitperiod\bibinitdelim C\bibinitperiod},
+           prefix={de},
+           prefixi={d\bibinitperiod}}}%
+      }
+      \strng{namehash}{cf06ade735bfdb83b6b7d303f72978b9}
+      \strng{fullhash}{cf06ade735bfdb83b6b7d303f72978b9}
+      \strng{bibnamehash}{cf06ade735bfdb83b6b7d303f72978b9}
+      \strng{authorbibnamehash}{cf06ade735bfdb83b6b7d303f72978b9}
+      \strng{authornamehash}{cf06ade735bfdb83b6b7d303f72978b9}
+      \strng{authorfullhash}{cf06ade735bfdb83b6b7d303f72978b9}
+      \field{labelalpha}{Mad}
+      \field{sortinit}{M}
+      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{¿Actividad subconsciente? Algunos testimonios}
+      \verb{urlraw}
+      \verb http://www.mat.ucm.es/cosasmdg/cdsmdg/04vida/gocesesteticos/seminarioestrategiasppm/parapensarmejor/subconscientetestimonios.htm
+      \endverb
+      \verb{url}
+      \verb http://www.mat.ucm.es/cosasmdg/cdsmdg/04vida/gocesesteticos/seminarioestrategiasppm/parapensarmejor/subconscientetestimonios.htm
+      \endverb
+    \endentry
+    \entry{penrose2015nueva}{book}{}
+      \name{author}{1}{}{%
+        {{hash=f51dfd339a12125d0f82a2d93e66d9b7}{%
+           family={Penrose},
+           familyi={P\bibinitperiod},
+           given={Roger},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {DEBOLS! LLO}%
+      }
+      \strng{namehash}{f51dfd339a12125d0f82a2d93e66d9b7}
+      \strng{fullhash}{f51dfd339a12125d0f82a2d93e66d9b7}
+      \strng{bibnamehash}{f51dfd339a12125d0f82a2d93e66d9b7}
+      \strng{authorbibnamehash}{f51dfd339a12125d0f82a2d93e66d9b7}
+      \strng{authornamehash}{f51dfd339a12125d0f82a2d93e66d9b7}
+      \strng{authorfullhash}{f51dfd339a12125d0f82a2d93e66d9b7}
+      \field{labelalpha}{Pen15}
+      \field{sortinit}{P}
+      \field{sortinithash}{bb5b15f2db90f7aef79bb9e83defefcb}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{La nueva mente del emperador}
+      \field{year}{2015}
+    \endentry
+    \entry{poincare2018invencion}{book}{}
+      \name{author}{1}{}{%
+        {{hash=ec9aac8108836d6b8e69d7ce94ebc275}{%
+           family={Poincaré},
+           familyi={P\bibinitperiod},
+           given={Henri},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {KRK Ediciones}%
+      }
+      \strng{namehash}{ec9aac8108836d6b8e69d7ce94ebc275}
+      \strng{fullhash}{ec9aac8108836d6b8e69d7ce94ebc275}
+      \strng{bibnamehash}{ec9aac8108836d6b8e69d7ce94ebc275}
+      \strng{authorbibnamehash}{ec9aac8108836d6b8e69d7ce94ebc275}
+      \strng{authornamehash}{ec9aac8108836d6b8e69d7ce94ebc275}
+      \strng{authorfullhash}{ec9aac8108836d6b8e69d7ce94ebc275}
+      \field{labelalpha}{Poi18}
+      \field{sortinit}{P}
+      \field{sortinithash}{bb5b15f2db90f7aef79bb9e83defefcb}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{La invención matemática: cómo se inventa: el trabajo del inconsciente}
+      \field{year}{2018}
+      \true{nocite}
+    \endentry
+    \entry{rodriguez2003problema}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=bfe7fbf1ee44fa465e6031baaff8f968}{%
+           family={Rodríguez\bibnamedelima González},
+           familyi={R\bibinitperiod\bibinitdelim G\bibinitperiod},
+           given={Mariano},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Madrid, Biblioteca Nueva}%
+      }
+      \strng{namehash}{bfe7fbf1ee44fa465e6031baaff8f968}
+      \strng{fullhash}{bfe7fbf1ee44fa465e6031baaff8f968}
+      \strng{bibnamehash}{bfe7fbf1ee44fa465e6031baaff8f968}
+      \strng{authorbibnamehash}{bfe7fbf1ee44fa465e6031baaff8f968}
+      \strng{authornamehash}{bfe7fbf1ee44fa465e6031baaff8f968}
+      \strng{authorfullhash}{bfe7fbf1ee44fa465e6031baaff8f968}
+      \field{labelalpha}{Rod03}
+      \field{sortinit}{R}
+      \field{sortinithash}{b9c68a358aea118dfa887b6e902414a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{El problema de la identidad personal. Más que fragmentos}
+      \field{year}{2003}
+      \true{nocite}
+    \endentry
+    \entry{shelley2006frankenstein}{book}{}
+      \name{author}{1}{}{%
+        {{hash=d1fea8a65e764c7c4e76dea9c9e824d8}{%
+           family={Shelley},
+           familyi={S\bibinitperiod},
+           given={Mary\bibnamedelima Wollstonecraft},
+           giveni={M\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Ediciones Colihue SRL}%
+      }
+      \strng{namehash}{d1fea8a65e764c7c4e76dea9c9e824d8}
+      \strng{fullhash}{d1fea8a65e764c7c4e76dea9c9e824d8}
+      \strng{bibnamehash}{d1fea8a65e764c7c4e76dea9c9e824d8}
+      \strng{authorbibnamehash}{d1fea8a65e764c7c4e76dea9c9e824d8}
+      \strng{authornamehash}{d1fea8a65e764c7c4e76dea9c9e824d8}
+      \strng{authorfullhash}{d1fea8a65e764c7c4e76dea9c9e824d8}
+      \field{labelalpha}{She06}
+      \field{sortinit}{S}
+      \field{sortinithash}{c319cff79d99c853d775f88277d4e45f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Frankenstein o el Prometeo moderno}
+      \field{year}{2006}
+    \endentry
+    \entry{del2l2}{article}{}
+      \name{author}{1}{}{%
+        {{hash=0bb28f6a035cf689c6351d87de1fb4fa}{%
+           family={Tecnología},
+           familyi={T\bibinitperiod},
+           given={El\bibnamedelima País},
+           giveni={E\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \strng{namehash}{0bb28f6a035cf689c6351d87de1fb4fa}
+      \strng{fullhash}{0bb28f6a035cf689c6351d87de1fb4fa}
+      \strng{bibnamehash}{0bb28f6a035cf689c6351d87de1fb4fa}
+      \strng{authorbibnamehash}{0bb28f6a035cf689c6351d87de1fb4fa}
+      \strng{authornamehash}{0bb28f6a035cf689c6351d87de1fb4fa}
+      \strng{authorfullhash}{0bb28f6a035cf689c6351d87de1fb4fa}
+      \field{labelalpha}{Tec06}
+      \field{sortinit}{T}
+      \field{sortinithash}{51f9faf24c60c62ca764a77f78cf5666}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{EL PAÍS}
+      \field{title}{Policías y leyes propias para Second Life}
+      \field{year}{2006}
+      \field{dateera}{ce}
+      \true{nocite}
+    \endentry
+    \entry{van2003letters}{book}{}
+      \name{author}{1}{}{%
+        {{hash=c16dd5e7600cb933ca16694858154512}{%
+           family={Van\bibnamedelima Gogh},
+           familyi={V\bibinitperiod\bibinitdelim G\bibinitperiod},
+           given={Vincent},
+           giveni={V\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Penguin UK}%
+      }
+      \strng{namehash}{c16dd5e7600cb933ca16694858154512}
+      \strng{fullhash}{c16dd5e7600cb933ca16694858154512}
+      \strng{bibnamehash}{c16dd5e7600cb933ca16694858154512}
+      \strng{authorbibnamehash}{c16dd5e7600cb933ca16694858154512}
+      \strng{authornamehash}{c16dd5e7600cb933ca16694858154512}
+      \strng{authorfullhash}{c16dd5e7600cb933ca16694858154512}
+      \field{labelalpha}{Van03}
+      \field{sortinit}{V}
+      \field{sortinithash}{02432525618c08e2b03cac47c19764af}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The letters of Vincent van Gogh}
+      \field{year}{2003}
+    \endentry
+  \enddatalist
+  \missing{weideman2000matlab}
+\endrefsection
+\endinput
+

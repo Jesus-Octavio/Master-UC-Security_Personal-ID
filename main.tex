@@ -1,0 +1,112 @@
+%%  -*-coding: utf-8;ispell-local-dictionary: "castellano8";-*-
+
+\documentclass[a4paper]{book}
+
+\usepackage[backend=biber,style=alphabetic,citestyle=alphabetic,backref]{biblatex}
+\usepackage[colorlinks]{hyperref}
+\addbibresource{bibgraf.bib}
+
+
+\usepackage{mypub}
+
+\usepackage{subfiles}
+
+
+%\setcounter{tocdepth}{1}
+
+%% gives 22 pages
+%%\usepackage[a4paper,margin=2cm,footskip=0.4in,heightrounded]{geometry}
+%% results in 26, very close to a4wide
+%% \usepackage{geometry}
+%% \geometry{
+%%    includeheadfoot,
+%%    margin=2.54cm
+%% }
+
+\begin{document}
+
+
+%{{{ RCS header
+
+
+%\makeatletter \def\@rcsInfoFancyInfo{{\footnotesize%
+%      \emph{ \fcolorbox{black}{green}{Rev: \rcsInfoRevision,}
+%        \fcolorbox{black}{yellow}{\rcsInfoOwner,} \rcsInfoLongDate,
+%        \rcsInfoTime}}} \makeatother
+
+
+%  \rcsInfo $Id$
+
+
+%}}}
+
+\frontmatter
+\cleardoublepage
+\subfile{cover.tex}
+
+
+% Empty page between cover and abstract
+
+%\thispagestyle{empty}\clearpage\null\newpage
+%\cleardoublepage
+%\phantomsection
+%\addcontentsline{toc}{chapter}{Resumen. Abstract}
+\subfile{abstract.tex}
+
+
+
+% \makeatletter \providecommand\@dotsep{5} \makeatother
+ %\listoftodos\relax
+ 
+
+
+
+% Change settings locally
+% Change Table of Contents color from red to back and maintain the rest hyperrefs
+{
+	  \hypersetup{linkcolor=black}
+	  \tableofcontents
+}
+
+
+\def\biblio{}
+\mainmatter
+
+%\cleardoublepage
+%\phantomsection
+\addcontentsline{toc}{chapter}{Introducción.}
+\subfile{introduction.tex}
+\subfile{chapter1.tex}
+\subfile{chapter2.tex}
+\subfile{chapter3.tex}
+\addcontentsline{toc}{chapter}{Conclusiones.}
+\subfile{chapter4.tex}
+%\cleardoublepage
+%\phantomsection
+%\addcontentsline{toc}{chapter}{Conclusiones y trabajo futuro}
+%\subfile{conclusion.tex}
+%\cleardoublepage
+%\phantomsection
+%\addcontentsline{toc}{chapter}{Anexo}
+%\subfile{anexo.tex}
+\cleardoublepage
+\phantomsection
+\nocite{weideman2000matlab}
+\nocite{del2l2}
+\nocite{du2019creativity}
+\nocite{rodriguez2003problema}
+\nocite{poincare2018invencion}
+\nocite{apunted}
+\addcontentsline{toc}{chapter}{Bibliografía.}
+%\bibliographystyle{amsalpha-url}
+%\bibliography{bibgraf}
+\printbibliography
+% \biblio\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% eval: (my-set-castellano)
+%%% TeX-master: t
+%%% TeX-output-dir: "./build"
+%%% End:
+
+\end{document}

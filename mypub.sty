@@ -1,0 +1,534 @@
+\ProvidesPackage{mypub}
+
+\makeatletter
+
+\usepackage{tocbibind}
+
+% HEADERS SETTINGS
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead{} 
+
+\renewcommand{\headrulewidth}{0pt}
+
+\makeatletter
+\renewcommand{\sectionmark}[1]{\markright{\thesection~~#1}}
+\renewcommand{\chaptermark}[1]{\markboth{\if@mainmatter\chaptername\ \thechapter~~\fi#1}{}}
+\makeatother
+
+\fancyhead[LE]{\thepage}
+
+%\fancyhead[RE]{\itshape\MakeUppercase  \leftmark}
+%\fancyhead[LO]{\itshape\MakeUppercase  \rightmark}
+% Previous lines create two-lines headers
+
+\fancyhead[RE]{\itshape\nouppercase  \leftmark}
+\fancyhead[LO]{\itshape\nouppercase  \rightmark}
+\fancyhead[RO]{\thepage}
+
+% Patch for blank pages between chapters
+% which disables the current page style
+\makeatletter
+\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
+	\hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
+\makeatother
+% END HEADERS SETTINGS
+
+
+%\usepackage[colorlinks,backref]{hyperref}
+\usepackage{amssymb,amsfonts,amsmath,amsthm}
+
+\newtheorem{teorema}{Teorema}[]
+\newtheorem{corolario}{Corolario}[]
+\newtheorem{lema}[teorema]{Lema}
+\theoremstyle{definition}
+\newtheorem{definicion}{Definición}[]
+\newtheorem{ejemplo}{Ejemplo}[]
+%\renewcommand{\shorthandsspanish}{}
+
+\usepackage{verbatim}
+
+\usepackage{spreadtab}
+\usepackage{array}
+\usepackage{booktabs}
+
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage{resizegather}
+\usepackage{footmisc}
+
+\usepackage{mdwlist}
+
+\usepackage[numbered,framed]{matlab-prettifier}
+
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+
+\usepackage{algorithm}% http://ctan.org/pkg/algorithm
+\usepackage{algpseudocode}% http://ctan.org/pkg/algorithmicx
+
+
+
+\makeatletter
+\renewcommand{\ALG@name}{Algorithm}
+\algnewcommand{\Debut}{\Statex \textbf{Begin}\pushindent}
+\algnewcommand{\End}{\Statex \textbf{End}\popindent}
+
+\def\LStatex{\Statex\unskip\the\therules}% New line-state
+
+
+% This is the vertical rule that is inserted
+\def\therule{\makebox[\algorithmicindent][l]{\hspace*{.5em}\vrule height .75\baselineskip depth .25\baselineskip}}%
+
+\newtoks\therules% Contains rules
+\therules={}% Start with empty token list
+\def\appendto#1#2{\expandafter#1\expandafter{\the#1#2}}% Append to token list
+\def\gobblefirst#1{% Remove (first) from token list
+	#1\expandafter\expandafter\expandafter{\expandafter\@gobble\the#1}}%
+\def\LState{\State\unskip\the\therules}% New line-state
+\def\pushindent{\appendto\therules\therule}%
+\def\popindent{\gobblefirst\therules}%
+\def\printindent{\unskip\the\therules}%
+\def\printandpush{\printindent\pushindent}%
+\def\popandprint{\popindent\printindent}%
+
+%      ***      DECLARED LOOPS      ***
+% (from algpseudocode.sty)
+\algdef{SE}[WHILE]{While}{EndWhile}[1]
+{\printandpush\textbf{while} #1}
+{\popandprint\textbf{end while}}%
+\algdef{SE}[FOR]{For}{EndFor}[1]
+{\printandpush\algorithmicfor\ #1\ \algorithmicdo}
+{\popandprint\algorithmicend\ \algorithmicfor}%
+\algdef{S}[FOR]{ForAll}[1]
+{\printindent\algorithmicforall\ #1\ \algorithmicdo}%
+\algdef{SE}[LOOP]{Loop}{EndLoop}
+{\printandpush\algorithmicloop}
+{\popandprint\algorithmicend\ \algorithmicloop}%
+\algdef{SE}[REPEAT]{Repeat}{Until}
+{\printandpush\algorithmicrepeat}[1]
+{\popandprint\algorithmicuntil\ #1}%
+\algdef{SE}[IF]{If}{EndIf}[1]
+{\printandpush\algorithmicif\ #1\ \algorithmicthen}
+{\popandprint\algorithmicend\ \algorithmicif}%
+\algdef{C}[IF]{IF}{ElsIf}[1]
+{\popandprint\pushindent\algorithmicelse\ \algorithmicif\ #1\ \algorithmicthen}%
+\algdef{Ce}[ELSE]{IF}{Else}{EndIf}
+{\popandprint\pushindent\algorithmicelse}%
+\algdef{SE}[PROCEDURE]{procedure}{endprocedure}[2]
+{\printandpush\algorithmicprocedure\ \textproc{#1}\ifthenelse{\equal{#2}{}}{}{(#2)}}%
+{\popandprint\algorithmicend\ \algorithmicprocedure}%
+\algdef{SE}[FUNCTION]{function}{endfunction}[2]
+{\printandpush\algorithmicfunction\ \textproc{#1}\ifthenelse{\equal{#2}{}}{}{(#2)}}%
+{\popandprint\algorithmicend\ \algorithmicfunction}%
+\makeatother
+
+\allowdisplaybreaks
+\numberwithin{equation}{section} % get eq numbered within sections
+\DeclareMathOperator{\supp}{supp}
+\usepackage{latexsym}
+
+\DeclareUnicodeCharacter{2212}{-}
+
+
+
+
+\usepackage{lipsum}
+
+% RESUMEN-ABSTRATC
+%   Reduce the margin of the summary:
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist 
+
+%   Generate the environment for the abstract:
+\newcommand\summaryname{Abstract}
+\newenvironment{Abstract}%
+{\begin{center}%
+		\bfseries{\summaryname} \end{center}}
+
+
+\newcommand{\keywords}{\textbf{\textit Keywords: }}
+
+
+
+\newcommand\resumenname{Resumen}
+\newenvironment{Resumen}%
+{\begin{center}%
+		\bfseries{\resumenname} \end{center}}
+
+
+\newcommand{\palabrasclave}{\textbf{\textit Palabras clave:}}
+%FINR ESUMEN ABSTRACT
+
+
+
+\usepackage{morewrites}
+
+\usepackage{tcolorbox}
+
+\newcommand{\sbullet}{%
+  \hbox{\fontfamily{lmr}\fontsize{.4\dimexpr(\f@size 
+pt)}{0}\selectfont\textbullet}}
+\DeclareRobustCommand{\mathbullet}{\accentset{\sbullet}}
+\makeatother
+
+\makeatletter
+%%  \usepackage{natbib}
+%%  \setcitestyle{square}
+%% \renewcommand{\cite}{\citep}
+
+% fix for the bug todonotes+breqn «;» \todo{Change $G \in G^{k}(\setR^{N}; \setR^{N}) $}
+\DeclareSymbolFont{bbsymbol}{U}{bbold}{m}{n}
+\DeclareMathSymbol{\bbsemicolon}{\mathbin}{bbsymbol}{"3B}
+\usepackage{accents}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage{verbatim}
+\usepackage{textcomp}
+\usepackage{booktabs}
+\usepackage{float}
+%\usepackage{enumerate}
+
+
+
+
+\usepackage{mathrsfs}
+%\usepackage[english]{babel}
+\usepackage[autostyle]{csquotes}
+
+%\usepackage[scrpage2]{rcsinfo}
+% this seems best for use for the moment TODO comments and RCS footer
+%\usepackage[a4paper,margin=1.5in,footskip=0.4in,heightrounded]{geometry}
+% 
+\newcommand{\eqdef}{\overset{\mbox{\tiny{def}}}{=}}
+% this is wider than a4wide
+%% \usepackage{geometry}
+%% \geometry{
+%%    includeheadfoot,
+%%    margin=2.54cm
+%% }
+
+%% 
+% \usepackage{geometry}
+%%  \geometry{a4paper,margin=2cm,bindingoffset=25mm,heightrounded}
+
+
+
+
+%\usepackage{a4wide}
+\usepackage{wasysym}            % Add smiley support.
+%\usepackage{MnSymbol}
+
+% \usepackage{breqn} % experimental for better break of long equations
+% causes problems with the mathbullets, it is a very risky package
+
+\usepackage{dsfont} % for the identity
+\usepackage[tbtags]{mathtools}
+\usepackage[toc,page]{appendix}
+%\usepackage{empheq} % for sophisticated case like env PDI etc causes
+                    % problems with reqno
+%\usepackage[notcite, notref]{showkeys}
+
+
+%{{{ the todolist
+
+
+
+\usepackage{paralist}           % for compact lists
+\usepackage[colorinlistoftodos, textwidth=3cm, shadow]{todonotes}
+%\usepackage[displaymath, tightpage]{preview}  %we need this or we have
+                                %to deactivate todoview completely
+                                %when using preview-latex
+
+\definecolor{GreenYellow}{rgb}{0.678431,1.000000,0.184314}
+\newcounter{todocounter}
+\newcommand{\todonum}[2][]
+{\stepcounter{todocounter}\todo[#1]{\thetodocounter: #2}}
+
+\newcounter{ubcomment}
+ 
+\newcommand{\ubcomment}[2][]{%
+\refstepcounter{ubcomment}%
+{%
+\todo[linecolor=black,backgroundcolor={red!40!},size=\footnotesize]{%
+\textbf{Fixme: UB [\uppercase{#1}\theubcomment]:}~#2}%
+}}
+
+
+\newcommand{\ubresolved}[2][]{%
+\refstepcounter{ubcomment}%
+{%
+\todo[linecolor=black,backgroundcolor={green!40!},size=\footnotesize]{%
+\textbf{Resolved: UB [\uppercase{#1}\theubcomment]:}~#2}%
+}}
+
+
+\newcommand{\ubcommentmultiline}[2]{%
+\refstepcounter{ubcomment}%
+{%
+\todo[linecolor=black,inline,caption={\textbf{{Fixme: UB}
+    [\theubcomment]: #1}} ,backgroundcolor={green!40!},size=\footnotesize]{%
+\textbf{Fixme: UB [\theubcomment]:}~#2}%
+}}
+
+
+\newcommand{\jocomment}[2][]{%
+\refstepcounter{ubcomment}%
+{%
+\todo[linecolor=black,backgroundcolor={yellow!40!},size=\footnotesize]{%
+\textbf{Fixme: JO [\uppercase{#1}\theubcomment]:}~#2}%
+}}
+
+
+
+\newcommand{\joresolved}[2][]{%
+\refstepcounter{ubcomment}%
+{%
+\todo[linecolor=black,backgroundcolor={green!40!},size=\footnotesize]{%
+\textbf{Resolved: JO [\uppercase{#1}\theubcomment]:}~#2}%
+}}
+
+\newcommand{\ubcommentinline}[2][]{%
+\refstepcounter{ubcomment}%
+{%
+%\todo[linecolor=black,inline,caption={},backgroundcolor={green!40!},size=\footnotesize]{%
+\todo[linecolor=black,inline,backgroundcolor={red!40!yellow!40!},size=\footnotesize]{%
+\textbf{Fixme: UB [\uppercase{#1}\theubcomment]:}~#2}%
+}}
+
+\newcommand{\jocommentinline}[2][]{%
+\refstepcounter{ubcomment}%
+{%
+%\todo[linecolor=black,inline,caption={},backgroundcolor={green!40!},size=\footnotesize]{%
+\todo[linecolor=black,inline,backgroundcolor={red!40!blue!40!},size=\footnotesize]{%
+\textbf{Fixme: JO [\uppercase{#1}\theubcomment]:}~#2}%
+}}
+
+
+% caption is needed if the comment should include a list but then it
+% will not be added to the list of todo with a title
+
+
+\newcommand{\ubresolvedinline}[2][]{%
+\refstepcounter{ubcomment}%
+{%
+%\todo[linecolor=black,inline,caption={},backgroundcolor={green!40!},size=\footnotesize]{%
+\todo[linecolor=black,inline,backgroundcolor={green!40!},size=\footnotesize]{%
+\textbf{Resolved: UB [\uppercase{#1}\theubcomment]:}~#2}%
+}}
+% caption is needed if the comment should include a list but then it
+% will not be added to the list of todo with a title
+
+
+\newcommand{\joresolvedinline}[2][]{%
+\refstepcounter{ubcomment}%
+{%
+%\todo[linecolor=black,inline,caption={},backgroundcolor={green!40!},size=\footnotesize]{%
+\todo[linecolor=black,inline,backgroundcolor={green!40!},size=\footnotesize]{%
+\textbf{Resolved: JO [\uppercase{#1}\theubcomment]:}~#2}%
+}}
+
+
+\newcommand{\jorev}[2][]{%
+	\refstepcounter{ubcomment}%
+	{%
+		%\todo[linecolor=black,inline,caption={},backgroundcolor={green!40!},size=\footnotesize]{%
+		\todo[linecolor=black,inline,backgroundcolor={blue!40!},size=\footnotesize]{%
+			\textbf{Revision: JO [\uppercase{#1}\theubcomment]:}~#2}%
+}}
+
+% add support for todo in equations
+\usepackage{marginnote}
+\makeatletter
+\renewcommand{\@todonotes@drawMarginNoteWithLine}{%
+\begin{tikzpicture}[remember picture, overlay, baseline=-0.75ex]%
+    \node [coordinate] (inText) {};%
+\end{tikzpicture}%
+\marginnote[{% Draw note in left margin
+    \@todonotes@drawMarginNote%
+    \@todonotes@drawLineToLeftMargin%
+}]{% Draw note in right margin
+    \@todonotes@drawMarginNote%
+    \@todonotes@drawLineToRightMargin%
+}%
+}
+\makeatother
+
+%}}}
+
+
+%\usepackage[foot]{amsaddr}
+\makeatletter
+\newcommand{\leqnomode}{\tagsleft@true}
+\newcommand{\reqnomode}{\tagsleft@false}
+\makeatother
+%\usepackage{a4wide}
+\usepackage{color}
+
+\setlength{\parindent}{0pt}
+%\sloppy
+%\fussy 
+%\usepackage[protrusion=true,expansion]{microtype}
+\parskip=5pt plus 5pt
+%\oddsidemargin-10pt
+%\usepackage{morewrites} 
+
+
+\usepackage[utf8]{inputenc}     % « » works also 
+                                %the default engine
+ \usepackage[T1]{fontenc} 
+ \usepackage{stmaryrd}
+
+
+%%%%%%%%%%%%%%% for vvvert from \usepackage{mathabx}. This package is 
+%% in conflict with amsmath
+\DeclareFontFamily{U}{matha}{\hyphenchar\font45}
+\DeclareFontShape{U}{matha}{m}{n}{
+      <5> <6> <7> <8> <9> <10> gen * matha
+      <10.95> matha10 <12> <14.4> <17.28> <20.74> <24.88> matha12
+      }{}
+\DeclareSymbolFont{matha}{U}{matha}{m}{n}
+\DeclareFontSubstitution{U}{matha}{m}{n}
+
+% Math symbol font mathb
+\DeclareFontFamily{U}{mathx}{\hyphenchar\font45}
+\DeclareFontShape{U}{mathx}{m}{n}{
+      <5> <6> <7> <8> <9> <10>
+      <10.95> <12> <14.4> <17.28> <20.74> <24.88>
+      mathx10
+      }{}
+\DeclareSymbolFont{mathx}{U}{mathx}{m}{n}
+\DeclareFontSubstitution{U}{mathx}{m}{n}
+
+% Symbol definition
+\DeclareMathDelimiter{\vvvert}{0}{matha}{"7E}{mathx}{"17}
+%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphics,graphicx} 
+\newcommand{\setB}{{\mathord{\mathbb B}}}
+\newcommand{\setC}{{\mathord{\mathbb C}}}
+\newcommand{\setN}{{\mathord{\mathbb N}}}
+\newcommand{\setQ}{{\mathord{\mathbb Q}}}
+\newcommand{\setR}{{\mathord{\mathbb R}}}
+\newcommand{\setT}{{\mathord{\mathbb T}}}
+\newcommand{\setZ}{{\mathord{\mathbb Z}}}
+\newcommand{\coloncolon}{\mathrel{::}}
+\newcommand{\lsemantics}{\mathopen{\lbrack\mkern-3mu\lbrack}}
+\newcommand{\rsemantics}{\mathclose{\rbrack\mkern-3mu\rbrack}}
+\newcommand{\lcata}{\mathopen{(\mkern-3mu\mid}}
+\newcommand{\rcata}{\mathopen{\mid\mkern-3mu)}}
+\newtheorem{thm}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{lem}{Lemma}
+\newtheorem{cor}{Corollary}
+
+\newtheorem{prop}{Proposition}
+\theoremstyle{definition}
+\newtheorem{rem}{Remark}
+\def\div{\mathop{\rm div}}
+\def\grad{\mathop{\rm grad}} 
+\def\Id{\mathop{\rm Id}}
+%\usepackage[side]{footmisc}
+%\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
+\usepackage{framed}
+\def\underrel#1#2{\mathrel{\mathop{#2}\limits_{#1}}}
+\def\BeweisEnde{\hskip 1mm \hbox{\vrule
+height 1.9mm width 2mm depth 0.1mm}}
+
+\newcommand{\n}{{\mathord{|||}}}
+\usepackage{comment}
+
+
+%{{{ nomenclature
+%\usepackage[refpage,refeq,intoc]{nomencl}
+\usepackage[refpage]{nomencl}
+
+%% \usepackage[pageanchor]{hyperref}
+%% \def\pagedeclaration#1{, \hyperlink{page.#1}{page\nobreakspace#1}}
+
+\makeglossary
+\makenomenclature
+\makeindex
+%\renewcommand{\nomentryend}{.}
+
+\def\nomentryend{.}
+\def\nomlabel#1{\textbf{#1}\hfil}
+
+
+%}}}
+%{{{ Kopka Nomenclature style, write a separate .sty file
+
+\makeatletter
+
+\def\@@@nomenclature[#1]#2#3{%
+\def\@tempa{#2}\def\@tempb{#3}%
+\protected@write\@nomenclaturefile{}%
+{\string\nomenclatureentry{#1\nom@verb\@tempa @[{\nom@verb\@tempa}]%
+|nompageref{\begingroup\nom@verb\@tempb\protect\nomeqref{\theequation}}}%
+{\thepage}}%
+\endgroup
+\@esphack}
+\def\nompageref#1#2{%
+\if@printpageref\pagedeclaration{#2}\else\null\fi
+\linebreak#1\nomentryend\endgroup}
+\def\pagedeclaration#1{\dotfill\nobreakspace#1}
+\makeatother
+
+%}}}
+
+\makeatother
+
+% For biblio
+\providecommand{\main}{.}  % *Modification: define file location
+                           % needed if the bibfile located in the directory
+%\def\biblio{\bibliographystyle{amsalpha}\bibliography{bibgraf}}  % *Modification: added `\main/` to specify relative file location.
+% \def\biblio{\bibliographystyle{abbrvnat}\bibliography{bibgraf}}  % *Modification: added `\main/` to specify relative file location.
+\def\biblio{\bibliographystyle{amsalpha-url}\bibliography{\main/bibgraf}}  % *Modification: added `\main/` to specify relative file location.
+
+
+%% \usepackage{refcheck}           % display the labels and show whether
+%%                                 % the are quoted.
+
+%% enhance depth for table of contents
+\makeatletter
+\def\@writetocindents{%
+  \begingroup
+  \@for\@tempa:=-1,0,1,2,3,4,5\do{%
+    \immediate\write\@auxout{%
+      \string\newlabel{tocindent\@tempa}{%
+        \csname r@tocindent\@tempa\endcsname}}%
+  }%
+  \endgroup}
+\AtBeginDocument{%
+  \@for\@tempa:=4,5\do{%
+    \@ifundefined{r@tocindent\@tempa}{%
+      \@xp\gdef\csname r@tocindent\@tempa\endcsname{0pt}}{}%
+  }%
+}
+\makeatother
+
+%% \usepackage{accents}
+%% \makeatletter
+%% \newcommand{\sbullet}{%
+%%   \hbox{\fontfamily{lmr}\fontsize{.4\dimexpr(\f@size 
+%% pt)}{0}\selectfont\textbullet}}
+%% \DeclareRobustCommand{\mathbullet}{\accentset{\sbullet}}
+%% \makeatother
+%% 
+
+\DeclareFontFamily{U}{rcjhbltx}{}
+\DeclareFontShape{U}{rcjhbltx}{m}{n}{<->rcjhbltx}{}
+\DeclareSymbolFont{hebrewletters}{U}{rcjhbltx}{m}{n}
+
+%% % remove the definitions from amssymb
+%% \let\aleph\relax\let\beth\relax
+%% \let\gimel\relax\let\daleth\relax
+
+%% \DeclareMathSymbol{\aleph}{\mathord}{hebrewletters}{39}
+%% \DeclareMathSymbol{\beth}{\mathord}{hebrewletters}{98}\let\bet\beth
+%% \DeclareMathSymbol{\gimel}{\mathord}{hebrewletters}{103}
+%% \DeclareMathSymbol{\daleth}{\mathord}{hebrewletters}{100}\let\dalet\daleth
+
+\DeclareMathSymbol{\lamed}{\mathord}{hebrewletters}{108}
+
+\usepackage[numbered,framed]{matlab-prettifier}

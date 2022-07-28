@@ -1,0 +1,156 @@
+%%  -*-coding: utf-8;ispell-local-dictionary: "castellano8";-*-
+
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+	\chapter*{\vspace{-1in}Anexo}
+	\chaptermark{Anexo}
+	\markboth{Anexo}{}
+	
+
+Todos los códigos empleados pueden consultarse en \href{https://sourceforge.net/p/tfg-lane-emden/code/ci/default/tree/}{https://sourceforge.net/p/tfg-lane-emden/code/ci/default/tree/}. Adjuntamos el pseudocódigo de los algoritmos SLM y QLM.
+En cuanto a la notación:
+\begin{enumerate}[(i)]
+	\item El símbolo $\leftarrow$ significa que se necesitan los miembros de la derecha para el cómputo del miembro de la izquierda. Por ejemplo, $A\leftarrow B,C$ indica que para calcular $A$ se necesitan $B$ y $C$. 
+	\item El símbolo $:=$ denota la asignación. Por ejemplo, $z:=x+y$ significa que la variable $z$ toma el valor $x+y$.
+\end{enumerate}
+
+
+\begin{algorithm}
+
+		
+  \caption{SLM}
+  \label{alg:pseudocode-slm-A}
+
+
+  \begin{algorithmic}[1]
+
+			
+    \function{$[\bold{y}, \xi]={\rm slm}$}{$N,n,iters$}
+    \Comment{Input.
+      Output}
+	
+	\LState $\bold{z}\gets N$  \Comment{Grid points (\ref{nodocheb})}
+	
+	\LState $\bold{x}\gets \bold{z},N$ \Comment{Domain transformation (\ref{trn:domain_transformation})}
+		
+			
+    \LState $D^{(1)}\gets \bold{z},N$  \Comment{Diff matrix (Teorema
+      \ref{thm:matriz_de_diferenciacion_de_Chebyshev})}
+			 
+    \LState $D^{(2)}\gets D^{(1)},\bold{z},N$  \Comment{2nd order diff matrix (\ref{mat:cheb-dif-orden-dos})}
+			
+    \LState $D\gets \bold{x}$ \Comment{Matrix $[4/x]_{d}$ (\ref{mat:slm})}
+
+	\LState 
+	$\bold{y} := \bold{y_{0}}$ \Comment{Initialise (\ref{eqn:aprox_y0})}
+
+    \LState
+	$\xi := \xi_{0}$ \Comment{Initialise (\ref{eqn:aprox_xi0})}
+	
+			
+    \For{$k = 1:iters$}
+			
+
+
+    \LState $R\gets \bold{y},N,n,k,\xi$ 
+    \Comment{Matrix $R_{k-1}$ (\ref{mat:slm})}
+			
+
+    \LState $B\gets \bold{y},N,n,k,\xi$ 
+    \Comment{Matrix $B_{k-1}$ (\ref{mat:slm})}
+
+    \LState $A\gets D^{(1)},D^{(2)},D,\bold{y},N,n,k,\xi$
+    \Comment{Matrix $A_{k-1}$ (\ref{mat:slm})}
+
+
+
+    \LState $C \gets A, B, D^{(1)}$ \Comment{Coefficient matrix (\ref{sst:slm-sistem})}
+
+    \LState $\bold{b} \gets R$ \Comment{Vector (\ref{sst:slm-sistem})}
+
+    \LState $\bold{y}_{k}, \xi_{k} \gets C,\bold{b}$ \Comment{Solve (\ref{sst:slm-sistem})}
+
+    \LState $\bold{y}:= \bold{y} +\bold{y_{k}}$ \Comment{Update (\ref{eqn:SLMy})}
+
+    \LState $\xi:= \xi + \xi_{k}$  \Comment{Update (\ref{eqn:SLM_xi})	}
+
+    \EndFor
+    \endfunction
+			
+  \end{algorithmic}
+\end{algorithm}
+	
+	
+	
+	
+	
+	
+\begin{algorithm}
+		
+  \caption{QLM.}
+  \label{alg:pseudocode-qlm}
+		
+  \begin{algorithmic}[1]
+			
+    \function{$[\bold{y},\bold{x},\bold{a},\xi]={\rm
+        qlm}$}{$N,n,iters$} \Comment{Input.
+      Output}
+			
+    \LState $\bold{x}\gets N$ \Comment{Grid points (\ref{gp:QLM_pts})}
+			
+			
+    \LState $D^{(0)}\gets N$ \Comment{Diff matrix (\ref{mat:D0}),(\ref{mat:D0_1}),(\ref{mat:D0_2})}
+			
+    \LState $D^{(1)}\gets N$ \Comment{Diff matrix (\ref{mat:D1}),(\ref{mat:D1_1}),(\ref{mat:D1_2})}
+			
+    \LState $D^{(2)}\gets N$ \Comment{Diff matrix (\ref{mat:D2}),(\ref{mat:D2_1}),(\ref{mat:D2_2})}
+			
+    \LState $\bold{y_{0}}\gets \bold{x}$ \Comment{Initialise (\ref{qlm_init})}
+    
+    \LState $\xi:= \xi_{0}$ \Comment{Initialise (\ref{qlm_init})}
+    
+    \LState $\bold{a}\gets \bold{y_{0}}, D^{(0)}$ \Comment{Initialise Cheb coeffs. Solve (\ref{qlm:iter0})}
+			
+    \For{$k = 1:iters$}
+			
+    \LState $\bold{y}:= D^{(0)}*\bold{a}$ \Comment{Update (\ref{qlm:0st-deriv})}
+    
+     \LState $J\gets D^{(0)}, D^{(1)}, D^{(2)},$
+    \LStatex \expandafter\hskip\algorithmicindent\relax $\bold{y}, \bold{x},\bold{a},n,\xi$
+    \Comment{Jacobian (\ref{j1})-(\ref{j6})}
+						
+    \LState $\bold{r}\gets D^{(1)}, D^{(2)}$
+    $\bold{y}, \bold{x},$			
+    \LStatex \expandafter\hskip\algorithmicindent\relax 
+    $\bold{a},n,\xi$ 
+    \Comment{Residual (\ref{res:1})-(\ref{res:3})}
+    
+    
+  		
+    
+    \LState $\bold{a_{k}},\xi_{k}\gets J,\bold{r}$ \Comment{Solve (\ref{sys:QLM})}
+			
+    \LState $\bold{a}:= \bold{a} + \bold{a_{k}} $ \Comment{Update (\ref{qlm:update-coeffs})}
+			
+    \LState $\xi := \xi + \xi_{k}$ \Comment{Update (\ref{qlm:update-eigenvalue})}
+			
+    \EndFor
+			
+    \LState $\bold{y}:= D^{(0)}*\bold{a}$ \Comment{Update (\ref{qlm:0st-deriv})}
+			
+    \endfunction
+			
+  \end{algorithmic}
+\end{algorithm}
+	
+	
+	
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% eval: (my-set-castellano)
+%%% TeX-master: t
+%%% TeX-output-dir: "./build"
+%%% End:
